@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Weather</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="api_key1">9pKXrwEg62mYPGVMN02WYF57jITIl6V9</string>
+    <string name="api_key2">RtuCR7g9I1T2ouOthl6Gm9DOWGQBoyzt</string>
+    <string name="api_key3">9pKXrwEg62mYPGVMN02WYF57jITIl6V9</string>
+    <string name="api_key4">w0sYj3BvDemsqyDI7QMv0LBoUljLRY2p</string>
+</resources>
