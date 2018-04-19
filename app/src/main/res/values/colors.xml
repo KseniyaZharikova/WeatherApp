@@ -4,4 +4,6 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorMyDarkGrey">#212121</color>
+    <color name="colorBtnForecast">#4782af</color>
+    <color name="colorBtnForecastClick">#294d68</color>
 </resources>
