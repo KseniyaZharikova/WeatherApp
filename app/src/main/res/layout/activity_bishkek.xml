@@ -36,6 +36,7 @@
         android:orientation="horizontal">
 
         <ImageView
+            android:layout_margin="10dp"
             android:id="@+id/iconWeather"
             android:layout_width="100dp"
             android:layout_height="100dp" />
@@ -70,7 +71,14 @@
         </LinearLayout>
     </LinearLayout>
 
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </TableLayout>
+
     <Button
+        android:background="@color/colorBtnForecast"
         android:textColor="@android:color/white"
         android:id="@+id/btnCurrent"
         android:layout_width="250dp"
