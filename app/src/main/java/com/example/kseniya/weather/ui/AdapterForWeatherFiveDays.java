@@ -65,8 +65,8 @@ public class AdapterForWeatherFiveDays extends ArrayAdapter {
 
         if (model != null) {
             holder.tvUpdate.setText(String.valueOf(model.getDate()));
-         //   holder.tvTemperature.setText(String.valueOf(model.getTemperature().getMaximum().getValue() + "/"
-               //     + model.getTemperature().getMinimum().getValue()));
+           holder.tvTemperature.setText(String.valueOf(model.getTemperature().getMaximum().getValue() + "/"
+                    + model.getTemperature().getMinimum().getValue()));
             holder.tvDetails.setText(model.getDay().getIconPhrase());
             int icon = model.getDay().getIcon();
             String imageUrl;

@@ -27,10 +27,9 @@ import retrofit2.Response;
 
 public class ActivityBishkek extends ActivityBase implements View.OnClickListener {
     private Button button;
-    private TextView tvCity, tvDate, tvTemperature, tvDetails;
+    private TextView tvCity, tvDate, tvTemperature, tvDetails, tvRealFeel, tvCloud_cover, tvHumidity, tvWind_speed, tvPressure, tvVisibility;
     private ImageView imageView;
     private RetrofitService service;
-    private FrameLayout progressBar;
     String locationKey;
     Example model;
 
@@ -40,12 +39,17 @@ public class ActivityBishkek extends ActivityBase implements View.OnClickListene
         setContentView(R.layout.activity_bishkek);
         tvCity = findViewById(R.id.tvCity);
         tvDate = findViewById(R.id.tvDate);
+        tvRealFeel = findViewById(R.id.tvRealFeel);
         tvTemperature = findViewById(R.id.tvTemperature);
         tvDetails = findViewById(R.id.tvDetails);
+        tvCloud_cover = findViewById(R.id.cloud_cover);
+        tvHumidity = findViewById(R.id.humidity);
+        tvWind_speed = findViewById(R.id.wind_speed);
+        tvPressure = findViewById(R.id.pressure);
+        tvVisibility = findViewById(R.id.visibility);
         button = findViewById(R.id.btnCurrent);
         button.setOnClickListener(this);
         imageView = findViewById(R.id.iconWeather);
-//        progressBar = findViewById(R.id.frame);
         service = WeatherApp.get(getApplicationContext()).getService();
         showProgressBar();
         getLocationForWeather();
@@ -55,7 +59,7 @@ public class ActivityBishkek extends ActivityBase implements View.OnClickListene
     private void getLocationForWeather() {
         String lat = getIntent().getStringExtra("location1");
         String lon = getIntent().getStringExtra("location2");
-        service.getCurrentLocation(String.format("%1s,%2s",lat,lon), getString(R.string.api_key2),"ru-Ru")
+        service.getCurrentLocation(String.format("%1s,%2s", lat, lon), getString(R.string.api_key1), "ru-Ru")
                 .enqueue(new Callback<Example>() {
                     @Override
                     public void onResponse(Call<Example> call, Response<Example> response) {
@@ -65,24 +69,20 @@ public class ActivityBishkek extends ActivityBase implements View.OnClickListene
                             locationKey = model.getKey();
                             getCurrentWeather();
                         } else {
-                            Toast.makeText(getApplicationContext(),"Сервер не отвечает",Toast.LENGTH_LONG).show();
-
+                            Toast.makeText(getApplicationContext(), "Сервер не отвечает", Toast.LENGTH_LONG).show();
                         }
-
                     }
 
                     @Override
                     public void onFailure(Call<Example> call, Throwable throwable) {
-                        Toast.makeText(getApplicationContext(),"Подключенияе к интернету отсутсвует", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Подключенияе к интернету отсутсвует", Toast.LENGTH_LONG).show();
                     }
                 });
 
     }
 
     private void getCurrentWeather() {
-
-
-        service.getCurrentWeather(locationKey, getString(R.string.api_key2),"ru-Ru")
+        service.getCurrentWeather(locationKey, getString(R.string.api_key1), "ru-Ru")
                 .enqueue(new Callback<List<CurrentModel>>() {
                     @Override
                     public void onResponse(Call<List<CurrentModel>> call, Response<List<CurrentModel>> response) {
@@ -90,7 +90,13 @@ public class ActivityBishkek extends ActivityBase implements View.OnClickListene
                             List<CurrentModel> currentModel = response.body();
                             tvDetails.setText(currentModel.get(0).getWeatherText());
                             tvDate.setText(currentModel.get(0).getLocalObservationDateTime().toString());
+                            tvRealFeel.setText(currentModel.get(0).getRealFeelTemperature().getMetric().getValue().toString());
                             tvTemperature.setText(currentModel.get(0).getTemperature().getMetric().getValue().toString());
+                            tvCloud_cover.setText(String.format("%s %%", currentModel.get(0).getCloudCover().toString()));
+                            tvHumidity.setText(String.format("%s%%", currentModel.get(0).getRelativeHumidity().toString()));
+                            tvWind_speed.setText(String.format("%s%s", currentModel.get(0).getWind().getSpeed().getMetric().getValue().toString(), currentModel.get(0).getWind().getSpeed().getMetric().getUnit().toString()));
+                            tvPressure.setText(String.format("%s%s", currentModel.get(0).getPressure().getMetric().getValue().toString(), currentModel.get(0).getPressure().getMetric().getUnit().toString()));
+                            tvVisibility.setText(String.format("%s%s", currentModel.get(0).getVisibility().getMetric().getValue().toString(), currentModel.get(0).getVisibility().getMetric().getUnit().toString()));
                             int icon = currentModel.get(0).getWeatherIcon();
                             String imageUrl;
                             if (icon < 10) {
@@ -99,8 +105,8 @@ public class ActivityBishkek extends ActivityBase implements View.OnClickListene
                                 imageUrl = String.format(Constans.ICONS_URLMORE, icon);
                             }
                             Picasso.get().load(imageUrl).into(imageView);
-                        }else {
-                            Toast.makeText(getApplicationContext(),"Сервер не отвечает",Toast.LENGTH_LONG).show();
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Сервер не отвечает", Toast.LENGTH_LONG).show();
 
                         }
 
@@ -136,7 +142,7 @@ public class ActivityBishkek extends ActivityBase implements View.OnClickListene
 
             case R.id.Item1:
                 Intent intent = new Intent(ActivityBishkek.this, ActivitySearch.class);
-                startActivityForResult(intent,0);
+                startActivityForResult(intent, 0);
                 break;
 
         }

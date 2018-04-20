@@ -43,7 +43,7 @@ public class ActivitySearch extends ActivityBase implements View.OnClickListener
 
     private void forSearchPlace() {
         showProgressBar();
-        service.searchPlace(editText.getText().toString(), getString(R.string.api_key2), "ru-Ru")
+        service.searchPlace(editText.getText().toString(), getString(R.string.api_key1), "ru-Ru")
                 .enqueue(new Callback<List<SearchPlaceModel>>() {
                     @Override
                     public void onResponse(Call<List<SearchPlaceModel>> call, Response<List<SearchPlaceModel>> response) {
