@@ -2,6 +2,7 @@ package com.example.kseniya.weather.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -82,7 +83,7 @@ public class ActivityBishkek extends ActivityBase implements View.OnClickListene
     }
 
     private void getCurrentWeather() {
-        service.getCurrentWeather(locationKey, getString(R.string.api_key1), "ru-Ru")
+        service.getCurrentWeather(locationKey, getString(R.string.api_key1), "ru-Ru",true)
                 .enqueue(new Callback<List<CurrentModel>>() {
                     @Override
                     public void onResponse(Call<List<CurrentModel>> call, Response<List<CurrentModel>> response) {
@@ -90,13 +91,13 @@ public class ActivityBishkek extends ActivityBase implements View.OnClickListene
                             List<CurrentModel> currentModel = response.body();
                             tvDetails.setText(currentModel.get(0).getWeatherText());
                             tvDate.setText(currentModel.get(0).getLocalObservationDateTime().toString());
-                            tvRealFeel.setText(currentModel.get(0).getRealFeelTemperature().getMetric().getValue().toString());
+                           tvRealFeel.setText(currentModel.get(0).getRealFeelTemperature().getMetric().getValue().toString());
                             tvTemperature.setText(currentModel.get(0).getTemperature().getMetric().getValue().toString());
-                            tvCloud_cover.setText(String.format("%s %%", currentModel.get(0).getCloudCover().toString()));
-                            tvHumidity.setText(String.format("%s%%", currentModel.get(0).getRelativeHumidity().toString()));
-                            tvWind_speed.setText(String.format("%s%s", currentModel.get(0).getWind().getSpeed().getMetric().getValue().toString(), currentModel.get(0).getWind().getSpeed().getMetric().getUnit().toString()));
-                            tvPressure.setText(String.format("%s%s", currentModel.get(0).getPressure().getMetric().getValue().toString(), currentModel.get(0).getPressure().getMetric().getUnit().toString()));
-                            tvVisibility.setText(String.format("%s%s", currentModel.get(0).getVisibility().getMetric().getValue().toString(), currentModel.get(0).getVisibility().getMetric().getUnit().toString()));
+//                            tvCloud_cover.setText(String.format("%s %%", currentModel.get(0).getCloudCover().toString()));
+//                            tvHumidity.setText(String.format("%s%%", currentModel.get(0).getRelativeHumidity().toString()));
+//                            tvWind_speed.setText(String.format("%s%s", currentModel.get(0).getWind().getSpeed().getMetric().getValue().toString(), currentModel.get(0).getWind().getSpeed().getMetric().getUnit().toString()));
+//                            tvPressure.setText(String.format("%s%s", currentModel.get(0).getPressure().getMetric().getValue().toString(), currentModel.get(0).getPressure().getMetric().getUnit().toString()));
+//                            tvVisibility.setText(String.format("%s%s", currentModel.get(0).getVisibility().getMetric().getValue().toString(), currentModel.get(0).getVisibility().getMetric().getUnit().toString()));
                             int icon = currentModel.get(0).getWeatherIcon();
                             String imageUrl;
                             if (icon < 10) {

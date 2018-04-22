@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:layout_margin="0dp"
     android:background="@color/colorMyDarkGrey"
     android:gravity="center"
@@ -86,46 +86,47 @@
     </LinearLayout>
 
     <TextView
-        android:textSize="18dp"
         android:id="@+id/cloud_cover"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center" />
+        android:gravity="center"
+        android:textSize="18dp" />
 
     <TextView
-        android:textSize="18dp"
         android:id="@+id/humidity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center" />
+        android:gravity="center"
+        android:textSize="18dp" />
 
     <TextView
-        android:textSize="18dp"
         android:id="@+id/wind_speed"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center" />
+        android:gravity="center"
+        android:textSize="18dp" />
 
     <TextView
-        android:textSize="18dp"
         android:id="@+id/pressure"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center" />
+        android:gravity="center"
+        android:textSize="18dp" />
 
     <TextView
-        android:textSize="18dp"
         android:id="@+id/visibility"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center" />
+        android:gravity="center"
+        android:textSize="18dp" />
 
     <Button
+
         android:id="@+id/btnCurrent"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="65dp"
         android:background="@drawable/selector_btn_click"
         android:text="@string/forecast"
         android:textColor="@android:color/white" />

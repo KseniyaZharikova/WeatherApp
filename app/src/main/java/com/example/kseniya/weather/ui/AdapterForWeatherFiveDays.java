@@ -20,8 +20,8 @@ import com.example.kseniya.weather.R;
 
 import com.example.kseniya.weather.WeatherApp;
 import com.example.kseniya.weather.data.RetrofitService;
-import com.example.kseniya.weather.modelsForecastWeather.DailyForecast;
-import com.example.kseniya.weather.modelsForecastWeather.Forecast;
+import com.example.kseniya.weather.forecastModels.DailyForecast;
+
 import com.example.kseniya.weather.utils.Constans;
 import com.squareup.picasso.Picasso;
 
@@ -65,8 +65,8 @@ public class AdapterForWeatherFiveDays extends ArrayAdapter {
 
         if (model != null) {
             holder.tvUpdate.setText(String.valueOf(model.getDate()));
-           holder.tvTemperature.setText(String.valueOf(model.getTemperature().getMaximum().getValue() + "/"
-                    + model.getTemperature().getMinimum().getValue()));
+           holder.tvTemperature.setText(String.valueOf(model.getTemperature().getMaximum().getValue().toString()
+                   +model.getTemperature().getMaximum().getUnit().toString()));
             holder.tvDetails.setText(model.getDay().getIconPhrase());
             int icon = model.getDay().getIcon();
             String imageUrl;

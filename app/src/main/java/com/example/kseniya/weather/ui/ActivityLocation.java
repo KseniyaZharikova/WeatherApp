@@ -7,8 +7,10 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.example.kseniya.weather.R;
 
@@ -70,15 +72,11 @@ public class ActivityLocation extends AppCompatActivity {
         locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,
                 1000 * 10, 10, locationListener);
 
-        if (location == null) {
-            return "";
-
-        }else {
+        if (location == null) return "";
             Intent intent =  new Intent(ActivityLocation.this,ActivityBishkek.class);
             intent.putExtra("location1",formatLocationGetLatitude(location));
             intent.putExtra("location2",formatLocationGetLongitude(location));
             startActivity(intent);
-        }
         return formatLocationGetLatitude(location);
     }
 
