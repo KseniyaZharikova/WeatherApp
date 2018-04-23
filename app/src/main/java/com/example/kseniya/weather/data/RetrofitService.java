@@ -37,7 +37,7 @@ public interface RetrofitService {
 
 
     @GET(Constans.URL_FORECAST + "{name}")
-    Call<Forecast> getWeatherForMore(@Path("name") String name,
+    Call<Forecast> getWeatherForecast(@Path("name") String name,
                                      @Query("apikey") String apikey,
                                      @Query("language") String language,
                                      @Query("details") boolean details,

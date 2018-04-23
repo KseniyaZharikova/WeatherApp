@@ -60,7 +60,7 @@ public class ActivityBishkek extends ActivityBase implements View.OnClickListene
     private void getLocationForWeather() {
         String lat = getIntent().getStringExtra("location1");
         String lon = getIntent().getStringExtra("location2");
-        service.getCurrentLocation(String.format("%1s,%2s", lat, lon), getString(R.string.api_key1), "ru-Ru")
+        service.getCurrentLocation(String.format("%1s,%2s", lat, lon), getString(R.string.api_key2), "ru-Ru")
                 .enqueue(new Callback<Example>() {
                     @Override
                     public void onResponse(Call<Example> call, Response<Example> response) {
@@ -83,7 +83,7 @@ public class ActivityBishkek extends ActivityBase implements View.OnClickListene
     }
 
     private void getCurrentWeather() {
-        service.getCurrentWeather(locationKey, getString(R.string.api_key1), "ru-Ru",true)
+        service.getCurrentWeather(locationKey, getString(R.string.api_key2), "ru-Ru",false)
                 .enqueue(new Callback<List<CurrentModel>>() {
                     @Override
                     public void onResponse(Call<List<CurrentModel>> call, Response<List<CurrentModel>> response) {
@@ -91,7 +91,7 @@ public class ActivityBishkek extends ActivityBase implements View.OnClickListene
                             List<CurrentModel> currentModel = response.body();
                             tvDetails.setText(currentModel.get(0).getWeatherText());
                             tvDate.setText(currentModel.get(0).getLocalObservationDateTime().toString());
-                           tvRealFeel.setText(currentModel.get(0).getRealFeelTemperature().getMetric().getValue().toString());
+                        //   tvRealFeel.setText(currentModel.get(0).getRealFeelTemperature().getMetric().getValue().toString());
                             tvTemperature.setText(currentModel.get(0).getTemperature().getMetric().getValue().toString());
 //                            tvCloud_cover.setText(String.format("%s %%", currentModel.get(0).getCloudCover().toString()));
 //                            tvHumidity.setText(String.format("%s%%", currentModel.get(0).getRelativeHumidity().toString()));
@@ -153,6 +153,9 @@ public class ActivityBishkek extends ActivityBase implements View.OnClickListene
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        if (data==null){
+            return;
+        }
         locationKey = data.getStringExtra("locationKey");
         tvCity.setText(data.getStringExtra("CityName"));
         getCurrentWeather();

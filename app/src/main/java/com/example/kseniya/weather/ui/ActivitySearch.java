@@ -43,7 +43,7 @@ public class ActivitySearch extends ActivityBase implements View.OnClickListener
 
     private void forSearchPlace() {
         showProgressBar();
-        service.searchPlace(editText.getText().toString(), getString(R.string.api_key1), "ru-Ru")
+        service.searchPlace(editText.getText().toString(), getString(R.string.api_key2), "ru-Ru")
                 .enqueue(new Callback<List<SearchPlaceModel>>() {
                     @Override
                     public void onResponse(Call<List<SearchPlaceModel>> call, Response<List<SearchPlaceModel>> response) {
@@ -83,7 +83,9 @@ public class ActivitySearch extends ActivityBase implements View.OnClickListener
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        if (model.get(position).getKey()==null&& model.get(position).getLocalizedName()==null)return;
         Intent intent = new Intent();
+
         intent.putExtra("locationKey", model.get(position).getKey());
         intent.putExtra("CityName", model.get(position).getLocalizedName());
         setResult(RESULT_OK, intent);
