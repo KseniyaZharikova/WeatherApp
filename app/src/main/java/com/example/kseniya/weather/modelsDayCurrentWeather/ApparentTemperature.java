@@ -8,24 +8,24 @@ public class ApparentTemperature {
 
     @SerializedName("Metric")
     @Expose
-    private Metric__________ metric;
+    private Metric metric;
     @SerializedName("Imperial")
     @Expose
-    private Imperial__________ imperial;
+    private Imperial imperial;
 
-    public Metric__________ getMetric() {
+    public Metric getMetric() {
         return metric;
     }
 
-    public void setMetric(Metric__________ metric) {
+    public void setMetric(Metric metric) {
         this.metric = metric;
     }
 
-    public Imperial__________ getImperial() {
+    public Imperial getImperial() {
         return imperial;
     }
 
-    public void setImperial(Imperial__________ imperial) {
+    public void setImperial(Imperial imperial) {
         this.imperial = imperial;
     }
 

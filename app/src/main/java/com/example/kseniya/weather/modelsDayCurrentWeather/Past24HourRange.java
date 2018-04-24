@@ -8,24 +8,24 @@ public class Past24HourRange {
 
     @SerializedName("Minimum")
     @Expose
-    private Minimum__ minimum;
+    private Minimum minimum;
     @SerializedName("Maximum")
     @Expose
-    private Maximum__ maximum;
+    private Maximum maximum;
 
-    public Minimum__ getMinimum() {
+    public Minimum getMinimum() {
         return minimum;
     }
 
-    public void setMinimum(Minimum__ minimum) {
+    public void setMinimum(Minimum minimum) {
         this.minimum = minimum;
     }
 
-    public Maximum__ getMaximum() {
+    public Maximum getMaximum() {
         return maximum;
     }
 
-    public void setMaximum(Maximum__ maximum) {
+    public void setMaximum(Maximum maximum) {
         this.maximum = maximum;
     }
 

@@ -7,5 +7,5 @@
     <string name="api_key2">RtuCR7g9I1T2ouOthl6Gm9DOWGQBoyzt</string>
     <string name="api_key3">9pKXrwEg62mYPGVMN02WYF57jITIl6V9</string>
     <string name="api_key4">w0sYj3BvDemsqyDI7QMv0LBoUljLRY2p</string>
-    <string name="forecast">Погода на следующие 5 дней </string>
+    <string name="forecast">погода на 5 дней</string>
 </resources>

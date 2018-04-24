@@ -32,7 +32,7 @@ public class ActivityForecast extends ActivityBase{
 
     private void getWeatherMore() {
         Intent intent= getIntent();
-        service.getWeatherForecast(intent.getStringExtra("locationKey"), getString(R.string.api_key2),"ru-RU",false,true)
+        service.getWeatherForecast(intent.getStringExtra("locationKey"), getString(R.string.api_key3),"ru-RU",false,true)
                 .enqueue(new Callback<Forecast>() {
                     @Override
                     public void onResponse(Call<Forecast> call, Response<Forecast> response) {

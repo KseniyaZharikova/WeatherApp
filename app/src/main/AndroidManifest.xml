@@ -28,6 +28,8 @@
         <activity android:name=".ui.ActivitySearch">
             
         </activity>
+
+        <service android:name=".ui.ServiceForNotification" />
     </application>
 
 </manifest>

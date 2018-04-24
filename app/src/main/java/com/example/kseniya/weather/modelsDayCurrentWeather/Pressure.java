@@ -8,24 +8,24 @@ public class Pressure {
 
     @SerializedName("Metric")
     @Expose
-    private Metric________ metric;
+    private Metric metric;
     @SerializedName("Imperial")
     @Expose
-    private Imperial________ imperial;
+    private Imperial imperial;
 
-    public Metric________ getMetric() {
+    public Metric getMetric() {
         return metric;
     }
 
-    public void setMetric(Metric________ metric) {
+    public void setMetric(Metric metric) {
         this.metric = metric;
     }
 
-    public Imperial________ getImperial() {
+    public Imperial getImperial() {
         return imperial;
     }
 
-    public void setImperial(Imperial________ imperial) {
+    public void setImperial(Imperial imperial) {
         this.imperial = imperial;
     }
 

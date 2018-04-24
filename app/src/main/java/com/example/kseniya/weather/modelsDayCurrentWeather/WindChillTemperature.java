@@ -8,24 +8,24 @@ public class WindChillTemperature {
 
     @SerializedName("Metric")
     @Expose
-    private Metric___________ metric;
+    private Metric metric;
     @SerializedName("Imperial")
     @Expose
-    private Imperial___________ imperial;
+    private Imperial imperial;
 
-    public Metric___________ getMetric() {
+    public Metric getMetric() {
         return metric;
     }
 
-    public void setMetric(Metric___________ metric) {
+    public void setMetric(Metric metric) {
         this.metric = metric;
     }
 
-    public Imperial___________ getImperial() {
+    public Imperial getImperial() {
         return imperial;
     }
 
-    public void setImperial(Imperial___________ imperial) {
+    public void setImperial(Imperial imperial) {
         this.imperial = imperial;
     }
 

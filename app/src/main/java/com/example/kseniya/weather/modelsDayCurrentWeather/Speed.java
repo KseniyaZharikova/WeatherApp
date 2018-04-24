@@ -8,24 +8,24 @@ public class Speed {
 
     @SerializedName("Metric")
     @Expose
-    private Metric____ metric;
+    private Metric metric;
     @SerializedName("Imperial")
     @Expose
-    private Imperial____ imperial;
+    private Imperial imperial;
 
-    public Metric____ getMetric() {
+    public Metric getMetric() {
         return metric;
     }
 
-    public void setMetric(Metric____ metric) {
+    public void setMetric(Metric metric) {
         this.metric = metric;
     }
 
-    public Imperial____ getImperial() {
+    public Imperial getImperial() {
         return imperial;
     }
 
-    public void setImperial(Imperial____ imperial) {
+    public void setImperial(Imperial imperial) {
         this.imperial = imperial;
     }
 

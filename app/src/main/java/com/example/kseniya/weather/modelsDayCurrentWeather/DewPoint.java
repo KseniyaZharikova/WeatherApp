@@ -8,24 +8,24 @@ public class DewPoint {
 
     @SerializedName("Metric")
     @Expose
-    private Metric___ metric;
+    private Metric metric;
     @SerializedName("Imperial")
     @Expose
-    private Imperial___ imperial;
+    private Imperial imperial;
 
-    public Metric___ getMetric() {
+    public Metric getMetric() {
         return metric;
     }
 
-    public void setMetric(Metric___ metric) {
+    public void setMetric(Metric metric) {
         this.metric = metric;
     }
 
-    public Imperial___ getImperial() {
+    public Imperial getImperial() {
         return imperial;
     }
 
-    public void setImperial(Imperial___ imperial) {
+    public void setImperial(Imperial imperial) {
         this.imperial = imperial;
     }
 

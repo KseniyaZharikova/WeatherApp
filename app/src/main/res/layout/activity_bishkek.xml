@@ -86,6 +86,7 @@
     </LinearLayout>
 
     <TextView
+        android:textColor="@android:color/white"
         android:id="@+id/cloud_cover"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -93,6 +94,7 @@
         android:textSize="18dp" />
 
     <TextView
+        android:textColor="@android:color/white"
         android:id="@+id/humidity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -100,6 +102,7 @@
         android:textSize="18dp" />
 
     <TextView
+        android:textColor="@android:color/white"
         android:id="@+id/wind_speed"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -107,6 +110,7 @@
         android:textSize="18dp" />
 
     <TextView
+        android:textColor="@android:color/white"
         android:id="@+id/pressure"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -114,6 +118,7 @@
         android:textSize="18dp" />
 
     <TextView
+        android:textColor="@android:color/white"
         android:id="@+id/visibility"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

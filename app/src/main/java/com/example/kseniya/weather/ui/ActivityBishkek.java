@@ -1,7 +1,10 @@
 package com.example.kseniya.weather.ui;
 
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -33,6 +36,7 @@ public class ActivityBishkek extends ActivityBase implements View.OnClickListene
     private RetrofitService service;
     String locationKey;
     Example model;
+    ServiceForNotification serviceNotification;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,12 +59,28 @@ public class ActivityBishkek extends ActivityBase implements View.OnClickListene
         showProgressBar();
         getLocationForWeather();
 
+        bindService(new Intent(this, ServiceForNotification.class), serviceConnection, BIND_AUTO_CREATE);
     }
+
+    ServiceConnection serviceConnection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            ServiceForNotification.GetService getService = (ServiceForNotification.GetService) service;
+            serviceNotification = getService.myService();
+
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+
+        }
+    };
+
 
     private void getLocationForWeather() {
         String lat = getIntent().getStringExtra("location1");
         String lon = getIntent().getStringExtra("location2");
-        service.getCurrentLocation(String.format("%1s,%2s", lat, lon), getString(R.string.api_key2), "ru-Ru")
+        service.getCurrentLocation(String.format("%1s,%2s", lat, lon), getString(R.string.api_key3), "ru-Ru")
                 .enqueue(new Callback<Example>() {
                     @Override
                     public void onResponse(Call<Example> call, Response<Example> response) {
@@ -83,7 +103,7 @@ public class ActivityBishkek extends ActivityBase implements View.OnClickListene
     }
 
     private void getCurrentWeather() {
-        service.getCurrentWeather(locationKey, getString(R.string.api_key2), "ru-Ru",false)
+        service.getCurrentWeather(locationKey, getString(R.string.api_key3), "ru-Ru", true)
                 .enqueue(new Callback<List<CurrentModel>>() {
                     @Override
                     public void onResponse(Call<List<CurrentModel>> call, Response<List<CurrentModel>> response) {
@@ -91,13 +111,13 @@ public class ActivityBishkek extends ActivityBase implements View.OnClickListene
                             List<CurrentModel> currentModel = response.body();
                             tvDetails.setText(currentModel.get(0).getWeatherText());
                             tvDate.setText(currentModel.get(0).getLocalObservationDateTime().toString());
-                        //   tvRealFeel.setText(currentModel.get(0).getRealFeelTemperature().getMetric().getValue().toString());
+                            tvRealFeel.setText("Ощущается: " + currentModel.get(0).getRealFeelTemperature().getMetric().getValue().toString());
                             tvTemperature.setText(currentModel.get(0).getTemperature().getMetric().getValue().toString());
-//                            tvCloud_cover.setText(String.format("%s %%", currentModel.get(0).getCloudCover().toString()));
-//                            tvHumidity.setText(String.format("%s%%", currentModel.get(0).getRelativeHumidity().toString()));
-//                            tvWind_speed.setText(String.format("%s%s", currentModel.get(0).getWind().getSpeed().getMetric().getValue().toString(), currentModel.get(0).getWind().getSpeed().getMetric().getUnit().toString()));
-//                            tvPressure.setText(String.format("%s%s", currentModel.get(0).getPressure().getMetric().getValue().toString(), currentModel.get(0).getPressure().getMetric().getUnit().toString()));
-//                            tvVisibility.setText(String.format("%s%s", currentModel.get(0).getVisibility().getMetric().getValue().toString(), currentModel.get(0).getVisibility().getMetric().getUnit().toString()));
+                            tvCloud_cover.setText("Облачность: " + String.format("%s %%", currentModel.get(0).getCloudCover().toString()));
+                            tvHumidity.setText("Влажность: " + String.format("%s%%", currentModel.get(0).getRelativeHumidity().toString()));
+                            tvWind_speed.setText("Скорость ветра: " + String.format("%s%s", currentModel.get(0).getWind().getSpeed().getMetric().getValue().toString(), currentModel.get(0).getWind().getSpeed().getMetric().getUnit().toString()));
+                            tvPressure.setText("Давление: " + String.format("%s%s", currentModel.get(0).getPressure().getMetric().getValue().toString(), currentModel.get(0).getPressure().getMetric().getUnit().toString()));
+                            tvVisibility.setText("Видимость: " + String.format("%s%s", currentModel.get(0).getVisibility().getMetric().getValue().toString(), currentModel.get(0).getVisibility().getMetric().getUnit().toString()));
                             int icon = currentModel.get(0).getWeatherIcon();
                             String imageUrl;
                             if (icon < 10) {
@@ -153,7 +173,7 @@ public class ActivityBishkek extends ActivityBase implements View.OnClickListene
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (data==null){
+        if (data == null) {
             return;
         }
         locationKey = data.getStringExtra("locationKey");

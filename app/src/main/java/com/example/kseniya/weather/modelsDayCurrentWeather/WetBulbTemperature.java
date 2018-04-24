@@ -8,24 +8,24 @@ public class WetBulbTemperature {
 
     @SerializedName("Metric")
     @Expose
-    private Metric____________ metric;
+    private Metric  metric;
     @SerializedName("Imperial")
     @Expose
-    private Imperial____________ imperial;
+    private Imperial imperial;
 
-    public Metric____________ getMetric() {
+    public Metric getMetric() {
         return metric;
     }
 
-    public void setMetric(Metric____________ metric) {
+    public void setMetric(Metric metric) {
         this.metric = metric;
     }
 
-    public Imperial____________ getImperial() {
+    public Imperial getImperial() {
         return imperial;
     }
 
-    public void setImperial(Imperial____________ imperial) {
+    public void setImperial(Imperial imperial) {
         this.imperial = imperial;
     }
 

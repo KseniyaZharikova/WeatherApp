@@ -8,7 +8,7 @@ public class Imperial {
 
     @SerializedName("Value")
     @Expose
-    private Integer value;
+    private Double value;
     @SerializedName("Unit")
     @Expose
     private String unit;
@@ -16,11 +16,11 @@ public class Imperial {
     @Expose
     private Integer unitType;
 
-    public Integer getValue() {
+    public Double getValue() {
         return value;
     }
 
-    public void setValue(Integer value) {
+    public void setValue(Double value) {
         this.value = value;
     }
 

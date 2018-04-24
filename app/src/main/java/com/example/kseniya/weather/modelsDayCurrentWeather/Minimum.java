@@ -8,24 +8,24 @@ public class Minimum {
 
     @SerializedName("Metric")
     @Expose
-    private Metric______________________ metric;
+    private Metric metric;
     @SerializedName("Imperial")
     @Expose
-    private Imperial______________________ imperial;
+    private Imperial  imperial;
 
-    public Metric______________________ getMetric() {
+    public Metric getMetric() {
         return metric;
     }
 
-    public void setMetric(Metric______________________ metric) {
+    public void setMetric(Metric  metric) {
         this.metric = metric;
     }
 
-    public Imperial______________________ getImperial() {
+    public Imperial getImperial() {
         return imperial;
     }
 
-    public void setImperial(Imperial______________________ imperial) {
+    public void setImperial(Imperial imperial) {
         this.imperial = imperial;
     }
 
