@@ -8,24 +8,24 @@ public class Precipitation {
 
     @SerializedName("Metric")
     @Expose
-    private Metric______________ metric;
+    private Metric metric;
     @SerializedName("Imperial")
     @Expose
-    private Imperial______________ imperial;
+    private Imperial imperial;
 
-    public Metric______________ getMetric() {
+    public Metric getMetric() {
         return metric;
     }
 
-    public void setMetric(Metric______________ metric) {
+    public void setMetric(Metric metric) {
         this.metric = metric;
     }
 
-    public Imperial______________ getImperial() {
+    public Imperial getImperial() {
         return imperial;
     }
 
-    public void setImperial(Imperial______________ imperial) {
+    public void setImperial(Imperial imperial) {
         this.imperial = imperial;
     }
 

@@ -8,7 +8,7 @@ import android.widget.Toast;
 import com.example.kseniya.weather.R;
 import com.example.kseniya.weather.WeatherApp;
 import com.example.kseniya.weather.data.RetrofitService;
-import com.example.kseniya.weather.modelsForecastWeather.Forecast;
+import com.example.kseniya.weather.forecastModels.Forecast;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -32,7 +32,7 @@ public class ActivityForecast extends ActivityBase{
 
     private void getWeatherMore() {
         Intent intent= getIntent();
-        service.getWeatherForMore(intent.getStringExtra("locationKey"), getString(R.string.api_key2),"ru-RU",true)
+        service.getWeatherForecast(intent.getStringExtra("locationKey"), getString(R.string.api_key3),"ru-RU",false,true)
                 .enqueue(new Callback<Forecast>() {
                     @Override
                     public void onResponse(Call<Forecast> call, Response<Forecast> response) {

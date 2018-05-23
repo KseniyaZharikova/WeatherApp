@@ -8,24 +8,24 @@ public class Ceiling {
 
     @SerializedName("Metric")
     @Expose
-    private Metric_______ metric;
+    private Metric metric;
     @SerializedName("Imperial")
     @Expose
-    private Imperial_______ imperial;
+    private Imperial imperial;
 
-    public Metric_______ getMetric() {
+    public Metric getMetric() {
         return metric;
     }
 
-    public void setMetric(Metric_______ metric) {
+    public void setMetric(Metric metric) {
         this.metric = metric;
     }
 
-    public Imperial_______ getImperial() {
+    public Imperial getImperial() {
         return imperial;
     }
 
-    public void setImperial(Imperial_______ imperial) {
+    public void setImperial(Imperial imperial) {
         this.imperial = imperial;
     }
 

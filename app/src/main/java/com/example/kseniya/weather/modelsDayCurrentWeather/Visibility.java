@@ -8,24 +8,24 @@ public class Visibility {
 
     @SerializedName("Metric")
     @Expose
-    private Metric______ metric;
+    private Metric metric;
     @SerializedName("Imperial")
     @Expose
-    private Imperial______ imperial;
+    private Imperial imperial;
 
-    public Metric______ getMetric() {
+    public Metric getMetric() {
         return metric;
     }
 
-    public void setMetric(Metric______ metric) {
+    public void setMetric(Metric metric) {
         this.metric = metric;
     }
 
-    public Imperial______ getImperial() {
+    public Imperial getImperial() {
         return imperial;
     }
 
-    public void setImperial(Imperial______ imperial) {
+    public void setImperial(Imperial imperial) {
         this.imperial = imperial;
     }
 

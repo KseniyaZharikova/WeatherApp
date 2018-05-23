@@ -8,25 +8,24 @@ public class PastHour {
 
     @SerializedName("Metric")
     @Expose
-    private Metric_______________ metric;
+    private Metric metric;
     @SerializedName("Imperial")
     @Expose
-    private Imperial_______________ imperial;
+    private Imperial imperial;
 
-    public Metric_______________ getMetric() {
+    public Metric getMetric() {
         return metric;
     }
 
-    public void setMetric(Metric_______________ metric) {
+    public void setMetric(Metric metric) {
         this.metric = metric;
     }
 
-    public Imperial_______________ getImperial() {
+    public Imperial getImperial() {
         return imperial;
     }
 
-    public void setImperial(Imperial_______________ imperial) {
+    public void setImperial(Imperial imperial) {
         this.imperial = imperial;
     }
-
 }

@@ -8,24 +8,24 @@ public class Precip1hr {
 
     @SerializedName("Metric")
     @Expose
-    private Metric_____________ metric;
+    private Metric metric;
     @SerializedName("Imperial")
     @Expose
-    private Imperial_____________ imperial;
+    private Imperial imperial;
 
-    public Metric_____________ getMetric() {
+    public Metric getMetric() {
         return metric;
     }
 
-    public void setMetric(Metric_____________ metric) {
+    public void setMetric(Metric metric) {
         this.metric = metric;
     }
 
-    public Imperial_____________ getImperial() {
+    public Imperial getImperial() {
         return imperial;
     }
 
-    public void setImperial(Imperial_____________ imperial) {
+    public void setImperial(Imperial imperial) {
         this.imperial = imperial;
     }
 

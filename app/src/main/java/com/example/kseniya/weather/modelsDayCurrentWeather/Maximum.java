@@ -8,24 +8,24 @@ public class Maximum {
 
     @SerializedName("Metric")
     @Expose
-    private Metric_______________________ metric;
+    private Metric metric;
     @SerializedName("Imperial")
     @Expose
-    private Imperial_______________________ imperial;
+    private Imperial imperial;
 
-    public Metric_______________________ getMetric() {
+    public Metric getMetric() {
         return metric;
     }
 
-    public void setMetric(Metric_______________________ metric) {
+    public void setMetric(Metric metric) {
         this.metric = metric;
     }
 
-    public Imperial_______________________ getImperial() {
+    public Imperial getImperial() {
         return imperial;
     }
 
-    public void setImperial(Imperial_______________________ imperial) {
+    public void setImperial(Imperial imperial) {
         this.imperial = imperial;
     }
 

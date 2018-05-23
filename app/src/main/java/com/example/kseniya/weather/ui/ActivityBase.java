@@ -28,7 +28,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public  abstract class ActivityBase extends AppCompatActivity {
+public abstract class ActivityBase extends AppCompatActivity {
     private ProgressDialog mDialog;
 
     @Override
@@ -41,15 +41,17 @@ public  abstract class ActivityBase extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
     }
-    protected  void showProgressBar(){
-        if (mDialog==null){
-            mDialog =  new ProgressDialog(this);
-            mDialog.setMessage("Загрузка данных");
+
+    protected void showProgressBar() {
+        if (mDialog == null) {
+            mDialog = new ProgressDialog(this);
+            mDialog.setMessage(" Загрузка погоды ");
             mDialog.show();
         }
     }
-    protected  void  dismissProgressBar(){
-        if (mDialog!=null&& mDialog.isShowing()){
+
+    protected void dismissProgressBar() {
+        if (mDialog != null && mDialog.isShowing()) {
             mDialog.dismiss();
 
         }

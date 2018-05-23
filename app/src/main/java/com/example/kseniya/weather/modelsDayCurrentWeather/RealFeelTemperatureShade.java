@@ -8,24 +8,24 @@ public class RealFeelTemperatureShade {
 
     @SerializedName("Metric")
     @Expose
-    private Metric__ metric;
+    private Metric metric;
     @SerializedName("Imperial")
     @Expose
-    private Imperial__ imperial;
+    private Imperial imperial;
 
-    public Metric__ getMetric() {
+    public Metric getMetric() {
         return metric;
     }
 
-    public void setMetric(Metric__ metric) {
+    public void setMetric(Metric metric) {
         this.metric = metric;
     }
 
-    public Imperial__ getImperial() {
+    public Imperial getImperial() {
         return imperial;
     }
 
-    public void setImperial(Imperial__ imperial) {
+    public void setImperial(Imperial imperial) {
         this.imperial = imperial;
     }
 

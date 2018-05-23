@@ -1,8 +1,9 @@
 package com.example.kseniya.weather.data;
 
+import com.example.kseniya.weather.forecastModels.Forecast;
 import com.example.kseniya.weather.modelsDayCurrentWeather.CurrentModel;
 import com.example.kseniya.weather.modelsDayCurrentWeather.ModelsForLocation.Example;
-import com.example.kseniya.weather.modelsForecastWeather.Forecast;
+
 import com.example.kseniya.weather.modelsSearch.SearchPlaceModel;
 import com.example.kseniya.weather.utils.Constans;
 
@@ -31,13 +32,15 @@ public interface RetrofitService {
     @GET("currentconditions/v1/{name}")
     Call<List<CurrentModel>> getCurrentWeather(@Path("name") String name,
                                                @Query("apikey") String apiKey,
-                                               @Query("language") String language);
+                                               @Query("language") String language,
+                                               @Query("details") boolean details);
 
 
     @GET(Constans.URL_FORECAST + "{name}")
-    Call<Forecast> getWeatherForMore(@Path("name") String name,
+    Call<Forecast> getWeatherForecast(@Path("name") String name,
                                      @Query("apikey") String apikey,
                                      @Query("language") String language,
+                                     @Query("details") boolean details,
                                      @Query("metric") boolean metric);
 
 

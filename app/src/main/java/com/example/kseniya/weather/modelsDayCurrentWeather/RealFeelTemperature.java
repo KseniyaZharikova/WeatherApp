@@ -8,24 +8,24 @@ public class RealFeelTemperature {
 
     @SerializedName("Metric")
     @Expose
-    private Metric_ metric;
+    private Metric metric;
     @SerializedName("Imperial")
     @Expose
-    private Imperial_ imperial;
+    private Imperial imperial;
 
-    public Metric_ getMetric() {
+    public Metric getMetric() {
         return metric;
     }
 
-    public void setMetric(Metric_ metric) {
+    public void setMetric(Metric metric) {
         this.metric = metric;
     }
 
-    public Imperial_ getImperial() {
+    public Imperial getImperial() {
         return imperial;
     }
 
-    public void setImperial(Imperial_ imperial) {
+    public void setImperial(Imperial imperial) {
         this.imperial = imperial;
     }
 
