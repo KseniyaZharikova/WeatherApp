@@ -65,7 +65,7 @@ public class BishkekActivity extends BaseActivity implements View.OnClickListene
     private void getLocationForWeather() {
         String lat = getIntent().getStringExtra("GetLatitude");
         String lon = getIntent().getStringExtra("GetLongitude");
-        service.getCurrentLocation(String.format("%1s,%2s", lat, lon), getString(R.string.api_key4), "ru-Ru")
+        service.getCurrentLocation(String.format("%1s,%2s", lat, lon), getString(R.string.api_key1), "ru-Ru")
                 .enqueue(new Callback<Example>() {
                     @Override
                     public void onResponse(Call<Example> call, Response<Example> response) {
@@ -79,10 +79,7 @@ public class BishkekActivity extends BaseActivity implements View.OnClickListene
                             Toast.makeText(getApplicationContext(), "Сервер не отвечает", Toast.LENGTH_LONG).show();
                             dismissProgressBar();
                         }
-
-
                     }
-
                     @Override
                     public void onFailure(Call<Example> call, Throwable throwable) {
                         Toast.makeText(getApplicationContext(), "Подключенияе к интернету отсутсвует", Toast.LENGTH_LONG).show();
@@ -92,7 +89,7 @@ public class BishkekActivity extends BaseActivity implements View.OnClickListene
     }
 
     private void getCurrentWeather() {
-        service.getCurrentWeather(locationKey, getString(R.string.api_key3), "ru-Ru", true)
+        service.getCurrentWeather(locationKey, getString(R.string.api_key1), "ru-Ru", true)
                 .enqueue(new Callback<List<CurrentModel>>() {
                     @Override
                     public void onResponse(Call<List<CurrentModel>> call, Response<List<CurrentModel>> response) {
