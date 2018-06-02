@@ -16,11 +16,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class SearchPresenter implements SearchContract.Presenter {
-
     private Context mContext;
     private RetrofitService mService;
     private SearchContract.View mView;
-
 
     public SearchPresenter(Context context) {
         mService = WeatherApp.get(mContext = context).getService();

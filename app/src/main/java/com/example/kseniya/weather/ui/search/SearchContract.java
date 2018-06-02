@@ -9,6 +9,7 @@ import java.util.List;
 public interface SearchContract {
     interface View extends IProgressBar {
         void onSuccess(List<SearchPlaceModel> model);
+
         void onError(String msg);
 
         void showInvalidCityMessage(String msg);
