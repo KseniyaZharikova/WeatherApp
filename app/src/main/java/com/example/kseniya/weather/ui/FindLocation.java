@@ -13,39 +13,27 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 
+import com.example.kseniya.weather.R;
 import com.example.kseniya.weather.ui.bishkek.BishkekActivity;
-
 
 public class FindLocation extends AppCompatActivity {
     private LocationManager locationManager;
     Location location;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-                == PackageManager.PERMISSION_GRANTED) {
-
+        setContentView(R.layout.find_location);
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             showLocation(location);
             return;
         }
-
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 10);
-
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
         showLocation(location);
     }
 
@@ -59,18 +47,15 @@ public class FindLocation extends AppCompatActivity {
         @Override
         public void onLocationChanged(Location location) {
             showLocation(location);
-
         }
 
         @Override
         public void onStatusChanged(String provider, int status, Bundle extras) {
-
         }
 
         @SuppressLint("MissingPermission")
         @Override
         public void onProviderEnabled(String provider) {
-
             showLocation(locationManager.getLastKnownLocation(provider));
         }
 
@@ -84,15 +69,13 @@ public class FindLocation extends AppCompatActivity {
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,
                 1000 * 10, 10, locationListener);
-
         if (location != null) {
             Intent intent = new Intent(FindLocation.this, BishkekActivity.class);
-            intent.putExtra("location1", formatLocationGetLatitude(location));
-            intent.putExtra("location2", formatLocationGetLongitude(location));
+            intent.putExtra("GetLatitude", formatLocationGetLatitude(location));
+            intent.putExtra("GetLongitude", formatLocationGetLongitude(location));
             startActivity(intent);
             finish();
         }
-
         return formatLocationGetLatitude(location);
     }
 
@@ -103,8 +86,6 @@ public class FindLocation extends AppCompatActivity {
         }
         return String.format("%1$.4f",
                 location.getLatitude()).replace(",", ".");
-
-
     }
 
     @SuppressLint("DefaultLocale")
@@ -115,6 +96,5 @@ public class FindLocation extends AppCompatActivity {
         return String.format("%1$.4f",
                 location.getLongitude()).replace(",", ".");
     }
-
 }
 

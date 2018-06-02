@@ -29,7 +29,7 @@ import retrofit2.Response;
 
 public class BishkekActivity extends BaseActivity implements View.OnClickListener {
     private Button button;
-    private TextView tvCity, tvNow,tvDate, tvTemperature, tvDetails, tvRealFeel, tvCloud_cover, tvHumidity, tvWind_speed, tvPressure, tvVisibility;
+    private TextView tvCity, tvNow, tvDate, tvTemperature, tvDetails, tvRealFeel, tvCloud_cover, tvHumidity, tvWind_speed, tvPressure, tvVisibility;
     private ImageView imageView;
     private RetrofitService service;
     String locationKey;
@@ -42,7 +42,7 @@ public class BishkekActivity extends BaseActivity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bishkek);
         tvCity = findViewById(R.id.tvCity);
-        tvNow =  findViewById(R.id.tvNow);
+        tvNow = findViewById(R.id.tvNow);
         tvDate = findViewById(R.id.tvDate);
         tvRealFeel = findViewById(R.id.tvRealFeel);
         tvTemperature = findViewById(R.id.tvTemperature);
@@ -61,9 +61,10 @@ public class BishkekActivity extends BaseActivity implements View.OnClickListene
 
 
     }
+
     private void getLocationForWeather() {
-        String lat = getIntent().getStringExtra("location1");
-        String lon = getIntent().getStringExtra("location2");
+        String lat = getIntent().getStringExtra("GetLatitude");
+        String lon = getIntent().getStringExtra("GetLongitude");
         service.getCurrentLocation(String.format("%1s,%2s", lat, lon), getString(R.string.api_key4), "ru-Ru")
                 .enqueue(new Callback<Example>() {
                     @Override
@@ -73,7 +74,6 @@ public class BishkekActivity extends BaseActivity implements View.OnClickListene
                             tvCity.setText(model.getLocalizedName());
                             locationKey = model.getKey();
                             getCurrentWeather();
-                            tvNow.setText("Сейчас");
                         } else {
 
                             Toast.makeText(getApplicationContext(), "Сервер не отвечает", Toast.LENGTH_LONG).show();
@@ -168,5 +168,7 @@ public class BishkekActivity extends BaseActivity implements View.OnClickListene
         tvCity.setText(data.getStringExtra("CityName"));
         getCurrentWeather();
     }
+
+
 }
 
