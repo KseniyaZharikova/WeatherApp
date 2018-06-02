@@ -13,23 +13,29 @@
         android:allowBackup="true"
         android:icon="@drawable/logo_weather"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logo_weather"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.ActivityLocation">
+        <activity android:name=".ui.FindLocation">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.ActivityBishkek" />
-        <activity android:name=".ui.ActivityForecast" />
-        <activity android:name=".ui.ActivitySearch">
+        <activity android:name=".ui.bishkek.BishkekActivity" />
+        <activity android:name=".ui.forecast.ForecastActivity" />
+        <activity android:name=".ui.search.SearchActivity">
             
         </activity>
 
-        <service android:name=".ui.ServiceForNotification" />
+        <service
+            android:name=".MyFirebaseMessageService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+
     </application>
 
 </manifest>

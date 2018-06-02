@@ -8,7 +8,7 @@
     android:background="@color/colorMyDarkGrey"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context="com.example.kseniya.weather.ui.ActivityBishkek">
+    tools:context="com.example.kseniya.weather.ui.bishkek.BishkekActivity">
 
     <TextView
         android:id="@+id/tvCity"
@@ -33,7 +33,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Сейчас"
         android:textColor="@android:color/white"
         android:textStyle="bold" />
 

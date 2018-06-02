@@ -1,11 +1,11 @@
 package com.example.kseniya.weather.data;
 
-import com.example.kseniya.weather.forecastModels.Forecast;
-import com.example.kseniya.weather.modelsDayCurrentWeather.CurrentModel;
-import com.example.kseniya.weather.modelsDayCurrentWeather.ModelsForLocation.Example;
+import com.example.kseniya.weather.data.modelsCurrentWeather.modelsForecast.Forecast;
+import com.example.kseniya.weather.data.modelsCurrentWeather.CurrentModel;
+import com.example.kseniya.weather.data.modelsCurrentWeather.modelsForLocation.Example;
 
-import com.example.kseniya.weather.modelsSearch.SearchPlaceModel;
-import com.example.kseniya.weather.utils.Constans;
+import com.example.kseniya.weather.data.modelsCurrentWeather.modelsSearch.SearchPlaceModel;
+import com.example.kseniya.weather.config.Constans;
 
 import java.util.List;
 

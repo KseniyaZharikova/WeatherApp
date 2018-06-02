@@ -5,12 +5,10 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    android:background="@color/colorMyDarkGrey"
-    tools:context="com.example.kseniya.weather.ui.ActivitySearch">
+    tools:context="com.example.kseniya.weather.ui.search.SearchActivity">
     <EditText
         android:inputType="text"
         android:digits="абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЫЬЪЭЮЯ"
-        android:textColor="@android:color/white"
         android:id="@+id/edit_textSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

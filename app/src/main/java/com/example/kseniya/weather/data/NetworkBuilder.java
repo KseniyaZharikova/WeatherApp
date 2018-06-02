@@ -1,6 +1,6 @@
 package com.example.kseniya.weather.data;
 
-import com.example.kseniya.weather.utils.Constans;
+import com.example.kseniya.weather.config.Constans;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
