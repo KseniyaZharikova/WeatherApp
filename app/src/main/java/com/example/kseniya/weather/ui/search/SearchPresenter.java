@@ -1,8 +1,6 @@
 package com.example.kseniya.weather.ui.search;
 
 import android.content.Context;
-import android.widget.ArrayAdapter;
-import android.widget.Toast;
 
 import com.example.kseniya.weather.R;
 import com.example.kseniya.weather.WeatherApp;
@@ -28,12 +26,13 @@ public class SearchPresenter implements SearchContract.Presenter {
     public void getWeatherByName(String city) {
         if (isValidData(city)) {
             if (isViewAttached()) mView.showLoadingIndicator();
-            mService.searchPlace(city, mContext.getString(R.string.api_key1), "ru-Ru")
+            mService.searchPlace(city, mContext.getString(R.string.api_key3), "ru-Ru")
                     .enqueue(new Callback<List<SearchPlaceModel>>() {
                         @Override
                         public void onResponse(Call<List<SearchPlaceModel>> call, Response<List<SearchPlaceModel>> response) {
                             if (response.isSuccessful() && response.body() != null) {
                                 if (isViewAttached()) mView.onSuccess(response.body());
+
                             } else {
                                 if (isViewAttached())
                                     mView.showInvalidCityMessage(response.message());

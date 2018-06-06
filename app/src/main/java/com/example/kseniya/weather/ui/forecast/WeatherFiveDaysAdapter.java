@@ -4,6 +4,7 @@ package com.example.kseniya.weather.ui.forecast;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,6 +58,8 @@ public class WeatherFiveDaysAdapter extends ArrayAdapter {
             holder.tvTemperature.setText(String.valueOf(model.getTemperature().getMaximum().getValue().toString()
                     + model.getTemperature().getMaximum().getUnit().toString()));
             holder.tvDetails.setText(model.getDay().getIconPhrase());
+
+            Log.e("getWeather2222787222222","77777777777777777777" +model.getDay().getIconPhrase());
             int icon = model.getDay().getIcon();
             String imageUrl;
             if (icon < 10) {
